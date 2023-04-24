@@ -20,8 +20,6 @@ module FusionRing
 
       def initialize(site, title, path)
 
-        puts title
-
         @site = site             # the current site instance.
         @base = site.source      # path to the source directory.
         @dir  = "FusonRings"         # the directory the page will reside in.
@@ -57,11 +55,11 @@ module FusionRing
           end
         end
 
+        # @url = basename
         
-        @data = {'layout' => "fusionring", 'title' => title, 'rk' => obs.size, 'obs'=> obs, 'fusiontable' => fusiontable}
+        @data = {'layout' => "fusionring", 'title' => title, 'rk' => obs.size, 'obs'=> obs, 'fusiontable' => fusiontable, 'permalink' => "anyonWikiDev/"+@dir+"/"+basename+".html"}
                
         
-        puts "----"
       end
 
     end

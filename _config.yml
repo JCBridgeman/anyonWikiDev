@@ -1,0 +1,82 @@
+# -----------------------------------------------------------------------------
+# Site settings
+# -----------------------------------------------------------------------------
+
+title: anyonWiki # the website title (if blank, full name will be used instead)
+first_name: Jacob
+middle_name: C.
+last_name: Bridgeman
+email: jcbridgeman1@gmail.com
+description: anyonWiki
+
+lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
+icon: JCBridgeman.jpg  # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+
+url:  # the base hostname & protocol for your site
+baseurl: / # the subpath of your site, e.g. /blog/
+last_updated: true # set to true if you want to display last updated in the footer
+impressum_path:  # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
+
+# -----------------------------------------------------------------------------
+# Theme
+# -----------------------------------------------------------------------------
+
+# Dimensions
+max_width: 800px
+
+
+# -----------------------------------------------------------------------------
+# Collections
+# -----------------------------------------------------------------------------
+
+collections:
+  fusionrings:
+    output: true
+
+# -----------------------------------------------------------------------------
+# Jekyll settings
+# -----------------------------------------------------------------------------
+
+# Markdown and syntax highlight
+markdown: kramdown
+highlighter: rouge
+
+# Includes & excludes
+include: ['_pages']
+exclude:
+  - bin
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+keep_files:
+  - CNAME
+  - .nojekyll
+  - .git
+
+# Plug-ins
+plugins:
+  - jemoji
+  - ./_plugins/FusionRings.rb
+
+# Sitemap settings
+defaults:
+  - scope:
+      path: "assets/**/*.*"
+    values:
+      sitemap: false
+  # - scope:
+  #     type: categories  # select all category pages
+  #   values:
+  #     layout: page
+  #     permalink: categories/:category/
+
+# -----------------------------------------------------------------------------
+# Jekyll Link Attributes
+# -----------------------------------------------------------------------------
+
+# These are the defaults
+external_links:
+  enabled: true
+  rel: external nofollow noopener
+  target: _blank
+  exclude:

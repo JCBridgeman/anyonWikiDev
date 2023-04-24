@@ -1,0 +1,59 @@
+{% include head_fusionring.html %}
+
+
+<body>
+	Rank: {{page.rk}}
+	<br>
+	<br>
+	<br>
+	Objects:
+	<br>
+	<table>
+	<tr>
+		{% for i in page.obs %}
+		\(\psi_{{i | minus: 1}}\)
+		{% endfor %}
+	</tr>
+	</table>
+	<br>
+	<br>
+	<br>
+	Fusion ring:
+	<br>
+
+	<table class="fusiontable">
+		
+		<thead><tr><th class = 'topleft'></th>
+		{% for b in page.obs %}
+		<th>\(\boldsymbol{\psi_{{b | minus: 1}}}\)</th>
+		{% endfor %}
+	</tr></thead>
+		{% for a in page.obs %}
+		<tr>
+			<th>\(\boldsymbol{\psi_{{a | minus: 1}}}\)</th>
+			{% for b in page.obs %}
+
+			{% assign fusion_ab = "" | split: "+" | compact %}
+
+			{% for c in page.obs %}
+			{% capture X %}
+				{% if page.fusiontable[a][b][c] > 1 %}
+					{{ page.fusiontable[a][b][c]}}\(\boldsymbol{\psi_{{c | minus: 1}}}\)
+				{% elsif page.fusiontable[a][b][c] == 1 %}
+					\(\boldsymbol{\psi_{{c | minus: 1}}}\)
+				{% endif %}
+			{% endcapture %}
+			{% if X != blank %}
+				{% assign fusion_ab = fusion_ab | push: X %}
+			{% endif %}
+			{% endfor %}
+
+			<td> {{fusion_ab | compact | join: "+"}}</td>
+			{% endfor %}
+		</tr>
+		{% endfor %}
+	</table>
+
+</body>
+
+

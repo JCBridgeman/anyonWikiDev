@@ -1,0 +1,13 @@
+{% include head.html %}
+
+
+<body>
+	{{ page.content }}
+	<ul>
+		{% for page in site.pages %}
+			<li> <a href="{{page.url}}">title: {{page.title}}</a> </li>
+		{% endfor %}
+	</ul>
+</body>
+
+

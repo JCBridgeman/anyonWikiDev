@@ -32,7 +32,6 @@ module FusionRing
         @layout = "FusionRing"
         @title = title
 
-        # fusiondata = CSV.read(path, headers: true, encoding:'utf-16')
         fusiondata = CSV.parse(File.read(path), headers: true, converters: :numeric)
 
         obs = fusiondata['a'].uniq
@@ -54,20 +53,20 @@ module FusionRing
             
           end
         end
+        
+        puts @base
 
-        # @url = basename
-        
-        @data = {'layout' => "fusionring", 'title' => title, 'rk' => obs.size, 'obs'=> obs, 'fusiontable' => fusiontable, 'permalink' => "anyonWikiDev/"+@dir+"/"+basename+".html"}
+        @template = ':path'
+        @data = {'layout' => "fusionring", 'title' => title, 'rk' => obs.size, 'obs'=> obs, 'fusiontable' => fusiontable, 'permalink' => '/FusionRings/'+basename+'.html'}
                
-        
       end
 
     end
 
     def url_placeholders
       {
-        :path       => @dir,
-        :category   => @dir,
+        :path       => "XYZ"+@dir,
+        :category   => "FusionRing",
         :basename   => basename,
         :output_ext => output_ext,
       }

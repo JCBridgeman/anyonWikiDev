@@ -1,0 +1,28 @@
+.fusiontable{
+    border-collapse: collapse;
+    text-align: center;
+}
+.fusiontable thead{
+    border-right: 0px;
+    border-collapse: collapse;
+}
+
+.fusiontable thead th{
+    border-bottom: 1px solid black;
+    border-right: 0px;
+    border-collapse: collapse;
+}
+
+.fusiontable thead th.topleft{
+    border-right: 1px solid black;
+    border-collapse: collapse;
+}
+
+.fusiontable th{
+    border-right: 1px solid black;;
+    border-collapse: collapse;
+}
+
+.fusiontable td{
+    padding: 10px;
+}

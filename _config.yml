@@ -55,7 +55,9 @@ keep_files:
 
 # Plug-ins
 plugins:
+  - jekyll-paginate
   - jemoji
+  - jekyll-category-pages
   - ./_plugins/FusionRings.rb
 
 # Sitemap settings
@@ -64,11 +66,6 @@ defaults:
       path: "assets/**/*.*"
     values:
       sitemap: false
-  # - scope:
-      # type: categories  # select all category pages
-  #   values:
-  #     layout: page
-  #     permalink: categories/:category/
 
 # -----------------------------------------------------------------------------
 # Jekyll Link Attributes

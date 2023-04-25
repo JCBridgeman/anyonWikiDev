@@ -53,11 +53,37 @@ module FusionRing
             
           end
         end
+
+        fr_data = basename.split('_')
+        r = fr_data[1]
+        m = fr_data[2]
+        n = fr_data[3]
+        i = fr_data[4]
+
+        puts fr_data
+
+        if m == '1'
+          displayname = '\(\text{FR}^{'+r+n+'}_{'+i+'}\)'
+        else
+          displayname = '\(\text{FR}^{'+r+m+n+'}_{'+i+'}\)'
+        end
         
-        puts @base
+        puts displayname
 
         @template = ':path'
-        @data = {'layout' => "fusionring", 'title' => title, 'rk' => obs.size, 'obs'=> obs, 'fusiontable' => fusiontable, 'permalink' => '/FusionRings/'+basename+'.html'}
+        @data = {
+          'layout' => "fusionring", 
+          'permalink' => '/FusionRings/'+basename+'.html', 
+          'tag' => 'FusionRing', 
+          'title' => title, 
+          'obs'=> obs, 
+          'displayname' => displayname,
+          'r' => r, 
+          'm' => m, 
+          'n' => n, 
+          'i' => i, 
+          'fusiontable' => fusiontable 
+          }
                
       end
 
@@ -65,7 +91,7 @@ module FusionRing
 
     def url_placeholders
       {
-        :path       => "XYZ"+@dir,
+        :path       => @dir,
         :category   => "FusionRing",
         :basename   => basename,
         :output_ext => output_ext,

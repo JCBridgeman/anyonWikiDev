@@ -1,0 +1,23 @@
+{% include head.html %}
+
+
+<body>
+	<!-- {{ page.content }}
+	<ul>
+		{% for page in site.categories %}
+		{{page}}
+			<li> <a href="{{page.url | relative_url}}">title: {{page.title}}</a> </li>
+		{% endfor %}
+	</ul> -->
+
+
+	<ul>
+		{% assign rings = site.pages | where: 'tag','FusionRing' | sort: 'r' | sort: 'i' %}
+		{% for page in rings %}
+			<li><a href="{{ page.url | relative_url }}">{{ page.displayname }}</a></li>
+		{% endfor %}
+	</ul>
+
+</body>
+
+

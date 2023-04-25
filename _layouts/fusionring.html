@@ -2,7 +2,7 @@
 
 
 <body>
-	Rank: {{page.rk}}
+	Rank: {{page.r}}
 	<br>
 	<br>
 	<br>
@@ -23,7 +23,7 @@
 
 	<table class="fusiontable">
 		
-		<thead><tr><th class = 'topleft'></th>
+		<thead><tr><th class = 'topleft'>\(\otimes\)</th>
 		{% for b in page.obs %}
 		<th>\(\boldsymbol{\psi_{{b | minus: 1}}}\)</th>
 		{% endfor %}
@@ -48,7 +48,7 @@
 			{% endif %}
 			{% endfor %}
 
-			<td> {{fusion_ab | compact | join: "+"}}</td>
+			<td> {{fusion_ab | compact | join: "\(\oplus\)"}}</td>
 			{% endfor %}
 		</tr>
 		{% endfor %}
